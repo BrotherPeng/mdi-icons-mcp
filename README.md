@@ -117,6 +117,23 @@ Configure in settings or `roo.json`:
 }
 ```
 
+### Via npx
+
+Use mdi-icons-mcp directly from npm without cloning the repository:
+
+```json
+{
+  "mdi-icons-mcp": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "mdi-icons-mcp@latest"
+    ],
+    "type": "stdio"
+  }
+}
+```
+
 ## Usage Examples
 
 ### Search Icons

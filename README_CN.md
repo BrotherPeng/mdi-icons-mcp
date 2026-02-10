@@ -117,6 +117,23 @@ macOS (`~/Library/Application Support/Cursor/mcp.json`) 或 Windows (`%APPDATA%\
 }
 ```
 
+### 通过 npx
+
+无需克隆仓库，直接从 npm 使用 mdi-icons-mcp：
+
+```json
+{
+  "mdi-icons-mcp": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "mdi-icons-mcp@latest"
+    ],
+    "type": "stdio"
+  }
+}
+```
+
 ## 使用示例
 
 ### 搜索图标
