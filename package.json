@@ -1,6 +1,6 @@
 {
   "name": "mdi-icons-mcp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MDI Icons MCP Server - Material Design Icons auto-download server for AI",
   "main": "dist/index.js",
   "bin": {
