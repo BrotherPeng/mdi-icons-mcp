@@ -69,13 +69,13 @@ export async function loadIconCache(): Promise<void> {
     // 版本号无变化，使用缓存
     if (cached.version === latestVersion) {
       iconList = cached.icons;
-      console.log(`[MDI] Cache up to date (${cached.version}), ${iconList.length} icons`);
+      console.error(`[MDI] Cache up to date (${cached.version}), ${iconList.length} icons`);
       return;
     }
 
-    console.log(`[MDI] Version changed: ${cached.version} → ${latestVersion}, refreshing...`);
+    console.error(`[MDI] Version changed: ${cached.version} → ${latestVersion}, refreshing...`);
   } catch {
-    console.log("[MDI] No cache found, fetching from API...");
+    console.error("[MDI] No cache found, fetching from API...");
   }
 
   // 3. 刷新缓存
@@ -86,7 +86,7 @@ export async function loadIconCache(): Promise<void> {
  * 刷新图标缓存
  */
 async function refreshIconCache(version: string): Promise<void> {
-  console.log(`[MDI] Fetching icons from jsDelivr (${version})...`);
+  console.error(`[MDI] Fetching icons from jsDelivr (${version})...`);
 
   const res = await fetch(`${JSdelivr_API}@${version}`);
   if (!res.ok) {
@@ -121,5 +121,5 @@ async function refreshIconCache(version: string): Promise<void> {
   };
 
   await fs.writeFile(CACHE_FILE, JSON.stringify(cache, null, 2));
-  console.log(`[MDI] Cached ${iconList.length} icons (${cache.version})`);
+  console.error(`[MDI] Cached ${iconList.length} icons (${cache.version})`);
 }

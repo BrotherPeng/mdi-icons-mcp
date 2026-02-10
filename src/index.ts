@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import * as z from "zod/v4";
@@ -6,7 +7,7 @@ import { searchIcons, getIcon } from "./tools/index.js";
 
 const server = new McpServer({
   name: "mdi-icons-mcp",
-  version: "1.0.0"
+  version: "1.0.2"
 });
 
 // 注册搜索工具
