@@ -1,0 +1,1 @@
+{"version":3,"file":"resolveIcon.d.ts","sourceRoot":"","sources":["../../src/tools/resolveIcon.ts"],"names":[],"mappings":"AAEA,MAAM,WAAW,aAAa;IAC5B,sEAAsE;IACtE,KAAK,EAAE,MAAM,EAAE,CAAC;IAChB,iBAAiB;IACjB,KAAK,EAAE,MAAM,CAAC;IACd,CAAC,GAAG,EAAE,MAAM,GAAG,OAAO,CAAC;CACxB;AAED;;;GAGG;AACH,wBAAsB,WAAW,CAC/B,OAAO,EAAE,MAAM,EACf,KAAK,GAAE,MAAY,GAClB,OAAO,CAAC,aAAa,CAAC,CAYxB"}
