@@ -1,4 +1,4 @@
-export declare const CACHE_FILE = "icons.json";
+export declare const CACHE_FILE: string;
 export interface IconInfo {
     name: string;
     url: string;

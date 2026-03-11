@@ -1,6 +1,11 @@
 import fs from "fs/promises";
 import path from "path";
-export const CACHE_FILE = "icons.json";
+import envPaths from "env-paths";
+const _paths = envPaths("mdi-icons-mcp", { suffix: "" });
+// macOS  → ~/Library/Caches/mdi-icons-mcp/icons.json
+// Linux  → ~/.cache/mdi-icons-mcp/icons.json
+// Windows → %LOCALAPPDATA%\mdi-icons-mcp\Cache\icons.json
+export const CACHE_FILE = path.join(_paths.cache, "icons.json");
 let iconList = [];
 const JSdelivr_API = "https://data.jsdelivr.com/v1/package/npm/@mdi/svg";
 /**
@@ -71,12 +76,13 @@ async function refreshIconCache(version) {
         name: f.name.replace(".svg", ""),
         url: `https://cdn.jsdelivr.net/npm/@mdi/svg@${version}/svg/${f.name}`
     }));
-    // 保存缓存
+    // 保存缓存（确保目录存在，避免 EROFS / ENOENT 错误）
     const cache = {
         version,
         updatedAt: new Date().toISOString(),
         icons: iconList
     };
+    await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
     await fs.writeFile(CACHE_FILE, JSON.stringify(cache, null, 2));
     console.error(`[MDI] Cached ${iconList.length} icons (${cache.version})`);
 }
